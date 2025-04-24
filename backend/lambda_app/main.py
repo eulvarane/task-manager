@@ -65,7 +65,7 @@ class UserInDB(BaseModel):
     email: EmailStr
 
 # Auth Setup
-SECRET_KEY = "your-secret-key"  # Replace with strong secret
+SECRET_KEY = "your-secret-key" 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -94,7 +94,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    print("Validation Error:", exc.errors())  # ✅ You'll see exactly what went wrong
+    print("Validation Error:", exc.errors())  
     return JSONResponse(
         status_code=422,
         content=jsonable_encoder({"detail": exc.errors()}),
@@ -145,7 +145,7 @@ def update_task(task_id: str, updated_task: TaskUpdate, current_user: str = Depe
     if task is None:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    update_data = updated_task.dict(exclude_none=True)  # <-- only include non-None fields
+    update_data = updated_task.dict(exclude_none=True)  
 
     if not update_data:
         raise HTTPException(status_code=400, detail="No valid fields to update")
