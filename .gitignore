@@ -1,0 +1,38 @@
+# Node modules
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files
+*.env
+
+# Docker
+*.log
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+.DS_Store
+
+# Dependencies
+*.egg-info/
+dist/
+build/
+
+# Ignore compiled code
+*.so
+*.pyd
+*.pyo
+
+# Ignore MongoDB Docker volumes if needed
+mongo-data/
+
+# Ignore coverage reports
+coverage/
+
+# Ignore local config
+.env.local
+.env.*.local
